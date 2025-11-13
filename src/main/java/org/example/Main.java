@@ -32,11 +32,25 @@ public class Main {
 
         Scanner pedirDato = new Scanner(System.in);
         ArrayList<HashMap<String,Object>>canciones = new ArrayList<>();
-        HashMap<String, Object> cancion = new HashMap<>();
 
-        while(true){
+        String decision = "entrar";
 
 
+        while(!decision.equals("salir")){
+
+            System.out.println("Digita salir si quieres terminar, de lo contrario digita cualquier cosa: ");
+            decision=pedirDato.nextLine();
+            System.out.println("Dijitaste " + decision);
+            if (decision.equals("salir")){
+                break;
+            }
+
+
+
+            HashMap<String, Object> cancion = new HashMap<>();
+
+
+            //Cargando diccionario
 
             System.out.print("Digita el nombre de la canción: ");
             cancion.put("nombre", pedirDato.nextLine());
@@ -61,6 +75,12 @@ public class Main {
 
             pedirDato.nextLine();
 
+            //Cargando la lista
+            canciones.add(cancion);
+            System.out.println("Canción agregada a la lista con exito");
+
+            //mostrando la lista
+            System.out.println(canciones);
 
 //ES IMPORTANTE EL ORDEN DE LOS TIPOS DE DATOS, PORQUE SE VUELVE LOCO.
 
