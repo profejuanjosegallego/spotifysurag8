@@ -16,12 +16,22 @@ public class Main {
 
         Scanner pedirDato = new Scanner(System.in);
         ArrayList<HashMap<String,Object>>canciones = new ArrayList<>();
-        HashMap<String,Object> cancion = new HashMap<>();
 
-        while (true){
+        String decision="entrar";
 
+        while (!decision.equals("salir")){
 
+            System.out.print("Digita salir si quieres terminar: ");
+            decision=pedirDato.nextLine();
+            System.out.print("Digitaste " + decision);
 
+            if (decision.equals("salir")){
+                break;
+            }
+
+            HashMap<String,Object> cancion = new HashMap<>();
+
+            //Cargando el diccionario
             System.out.print("Digita el nombre de la cancion: ");
             cancion.put("nombre", pedirDato.nextLine());
 
@@ -40,23 +50,20 @@ public class Main {
             System.out.print("Digita el id de la cancion: ");
             cancion.put("id", pedirDato.nextInt());
 
-            System.out.print("Digita la duracion de la cancion en minutos");
+            System.out.print("Digita la duracion de la cancion en minutos: ");
             cancion.put("duracion", pedirDato.nextDouble());
 
             pedirDato.nextLine();
 
+            //Cargando la lista
+            canciones.add(cancion);
+            System.out.println("Cancion agregada a la lista con exito");
 
-
-
-
-
-
+            //Mostrando la lista
+            System.out.println(canciones);
 
 
 
         }
-
-
-
     }
 }
