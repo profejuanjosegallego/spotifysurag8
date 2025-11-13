@@ -24,11 +24,22 @@ public class Main {
         //NECESIDADES (intentar no pasarme de 50 lineas de codigo)
         Scanner pedirDato = new Scanner(System.in);
         ArrayList<HashMap<String,Object>>canciones = new ArrayList<>();
-        HashMap<String,Object>cancion= new HashMap<>();
 
-        while(true){
+        String decision="entrar";
 
+        while(!decision.equals("salir")){
 
+            System.out.print("digita SALIR si quieres terminar de lo contrario digita cualquier cosa: ");
+            decision=pedirDato.nextLine();
+            System.out.println("digitaste "+decision);
+
+            if (decision.equals("salir")){
+                break;
+            }
+
+            HashMap<String,Object>cancion= new HashMap<>();
+
+            //cargando diccionario
             System.out.print("digita el nombre de la cancion: ");
             cancion.put("nombre",pedirDato.nextLine());
 
@@ -36,7 +47,7 @@ public class Main {
             cancion.put("artista",pedirDato.nextLine());
 
             System.out.print("digita el genero de la cancion: ");
-            cancion.put("duracion",pedirDato.nextLine());
+            cancion.put("genero",pedirDato.nextLine());
 
             System.out.print("digita el año de lanzamiento: ");
             cancion.put("añoLanzamiento",pedirDato.nextLine());
@@ -51,6 +62,15 @@ public class Main {
             cancion.put("duracion",pedirDato.nextDouble());
 
             pedirDato.nextLine();
+
+            //cargando la lista
+            canciones.add(cancion);
+            System.out.println("cancion agregada a la lista con exito");
+
+            //mostrando la lista
+            System.out.println(canciones);
+
+
 
 
 
